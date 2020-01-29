@@ -38,7 +38,7 @@ def pulse(led_screen, surface, channel):
                 color = (0, 0, v)
             surface.fill(*color)
             led_screen.draw_surface(surface)
-            time.sleep(0.02)
+            #time.sleep(0.02)
 
 
 def gradient(led_screen, surface, channel):
@@ -50,5 +50,10 @@ def gradient(led_screen, surface, channel):
         stops = [graphics.GradientStop(0.0, 0, 0, 255), graphics.GradientStop(1.0, 0, 0, 7)]
     surface.draw_gradient(stops)
     led_screen.draw_surface(surface)
-    while True:
-        time.sleep(0.02)
+    time.sleep(10)
+    #while True:
+    #   time.sleep(0.02)
+
+
+if __name__ == "__main__":
+    main()

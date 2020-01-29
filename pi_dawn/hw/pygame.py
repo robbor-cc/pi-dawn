@@ -10,11 +10,12 @@ class LedScreen:
     height = attr.ib(type=int)
 
     def __init__(self, width, height, gamma_r=1, gamma_g=1, gamma_b=1):
+        self.scale = 10
         self.width = width
         self.height = height
 
         pygame.init()
-        pygame.display.set_mode((10*self.width, 10*self.height))
+        pygame.display.set_mode((self.scale*self.width, self.scale*self.height), depth=32)
 
     def make_surface(self):
         return graphics.Surface(self)
@@ -24,7 +25,7 @@ class LedScreen:
         pysurf.lock()
         for y in range(self.height):
             for x in range(self.width):
-                pysurf.set_at((x,y), surface.get_pixel(x, y))
+                pysurf.set_at((x, y), surface.get_pixel(x, y))
         pysurf.unlock()
 
         bg = pygame.display.get_surface()

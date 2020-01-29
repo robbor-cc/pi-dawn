@@ -4,6 +4,7 @@ import redis
 
 redis_cli = redis.Redis()
 
+
 @attr.s
 class Message:
     pass
